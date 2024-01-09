@@ -1,11 +1,3 @@
-/*
- * Written by Doug Lea with assistance from members of JCP JSR-166
- * Expert Group and released to the public domain, as explained at
- * http://creativecommons.org/publicdomain/zero/1.0/
- * Other contributors include Andrew Wright, Jeffrey Hayes,
- * Pat Fisher, Mike Judd.
- */
-
 package jsr166;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
@@ -78,9 +70,7 @@ public class AbstractExecutorServiceTest extends JSR166TestCase {
         assertFalse(future.isCancelled());
     }
 
-    /**
-     * Completed submit(callable) returns result
-     */
+   
     public void testSubmitCallable() throws Exception {
         ExecutorService e = new DirectExecutorService();
         Future<String> future = e.submit(new StringTask());
@@ -88,9 +78,7 @@ public class AbstractExecutorServiceTest extends JSR166TestCase {
         assertSame(TEST_STRING, result);
     }
 
-    /**
-     * Completed submit(runnable) returns successfully
-     */
+    
     public void testSubmitRunnable() throws Exception {
         ExecutorService e = new DirectExecutorService();
         Future<?> future = e.submit(new NoOpRunnable());
@@ -98,9 +86,7 @@ public class AbstractExecutorServiceTest extends JSR166TestCase {
         assertTrue(future.isDone());
     }
 
-    /**
-     * Completed submit(runnable, result) returns result
-     */
+   
     public void testSubmitRunnable2() throws Exception {
         ExecutorService e = new DirectExecutorService();
         Future<String> future = e.submit(new NoOpRunnable(), TEST_STRING);
@@ -108,9 +94,7 @@ public class AbstractExecutorServiceTest extends JSR166TestCase {
         assertSame(TEST_STRING, result);
     }
 
-    /**
-     * A submitted privileged action runs to completion
-     */
+   
     public void testSubmitPrivilegedAction() throws Exception {
         Runnable r = new CheckedRunnable() {
             public void realRun() throws Exception {
